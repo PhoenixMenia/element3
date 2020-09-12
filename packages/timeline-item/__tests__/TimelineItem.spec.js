@@ -97,3 +97,23 @@ describe('TimelineItem.vue', () => {
     expect(wrapper.find('.el-timeline-item__icon').classes()).toContain('ccc')
   })
 })
+
+describe('inject should be instanceof Array', () => {
+  const wrapper = mount(TimelineItem, {
+    props: {
+      size: 'large'
+    }
+  })
+
+  expect(wrapper.inject instanceof Array).toBe(true)
+})
+
+describe('inject should contains the parent component: TimeLine', () => {
+  const wrapper = mount(TimelineItem, {
+    props: {
+      size: 'large'
+    }
+  })
+
+  expect(wrapper.inject).toContain('timeline');
+})
